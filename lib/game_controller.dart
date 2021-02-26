@@ -1,5 +1,6 @@
 import 'package:udm_alias_app/team.dart';
 import 'package:udm_alias_app/word.dart';
+import 'package:udm_alias_app/word_entity.dart';
 
 class GameController {
   static GameController _instance;
@@ -7,6 +8,7 @@ class GameController {
   double scoreToWin = 45;
   double timeForTeam = 60;
   bool minusNegativeScore = true;
+  bool showTranslations = false;
 
   List<Word> _words;
   List<Word> get words => _words;
@@ -41,8 +43,8 @@ class GameController {
     return teams[_currentTeamIndex].score >= scoreToWin;
   }
 
-  setWordList(List<String> words) {
-    _words = words.map((e) => Word(e)).toList();
+  setWordList(List<WordEntity> words) {
+    _words = words.map((e) => Word(e.value, e.translation)).toList();
   }
 
   List<Word> getRandomWords() {
