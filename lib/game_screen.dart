@@ -71,6 +71,7 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cardColor = Color(0xffffd166);
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -139,10 +140,11 @@ class _GameScreenState extends State<GameScreen> {
                     minWidth: MediaQuery.of(context).size.width * 0.8,
                     minHeight: MediaQuery.of(context).size.width * 1.0,
                     cardBuilder: (context, index) {
+
                       if (index == 0) {
                         // learning card
                         return Card(
-                          color: Color(0xffffd166),
+                          color: cardColor,
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Column(
@@ -179,7 +181,7 @@ class _GameScreenState extends State<GameScreen> {
                         // current word
                         var word = _words[index - 1];
                         return Card(
-                          color: Color(0xffffd166),
+                          color: cardColor,
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Column(
@@ -191,8 +193,8 @@ class _GameScreenState extends State<GameScreen> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Icon(Icons.keyboard_arrow_left_outlined,
-                                          color: Colors.red, size: 50),
+                                      Icon(Icons.undo_outlined,
+                                          color: Colors.red, size: 40),
                                       Expanded(
                                         child: Column(
                                           children: [
@@ -218,8 +220,8 @@ class _GameScreenState extends State<GameScreen> {
                                           ],
                                         ),
                                       ),
-                                      Icon(Icons.keyboard_arrow_right_outlined,
-                                          color: Colors.green, size: 50)
+                                      Icon(Icons.redo_outlined,
+                                          color: Colors.green, size: 40)
                                     ]),
                                 Icon(Icons.keyboard_arrow_down_outlined,
                                     color: Colors.red, size: 50)
@@ -243,9 +245,9 @@ class _GameScreenState extends State<GameScreen> {
                         onPressed: () {
                           cardController.triggerLeft();
                         },
-                        child: Icon(Icons.clear, color: primaryColor),
+                        child: Icon(Icons.clear, color: Colors.red),
                         shape: CircleBorder(),
-                        borderSide: BorderSide(color: primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Colors.red, width: 2.0),
                       ),
                     ),
                   ),
@@ -264,9 +266,9 @@ class _GameScreenState extends State<GameScreen> {
                         });
                       },
                       child: Icon(!_isPause ? Icons.pause : Icons.play_arrow,
-                          color: primaryColor),
+                          color: cardColor),
                       shape: CircleBorder(),
-                      borderSide: BorderSide(color: primaryColor, width: 2.0),
+                      borderSide: BorderSide(color: cardColor, width: 2.0),
                     ),
                   ),
                   SizedBox(
@@ -277,9 +279,9 @@ class _GameScreenState extends State<GameScreen> {
                         onPressed: () {
                           cardController.triggerRight();
                         },
-                        child: Icon(Icons.done, color: primaryColor),
+                        child: Icon(Icons.done, color: Colors.green),
                         shape: CircleBorder(),
-                        borderSide: BorderSide(color: primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Colors.green, width: 2.0),
                       ),
                     ),
                   ),
