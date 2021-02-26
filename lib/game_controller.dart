@@ -8,6 +8,7 @@ class GameController {
   double scoreToWin = 45;
   double timeForTeam = 60;
   bool minusNegativeScore = true;
+  bool showTranslations = false;
 
   List<Word> _words;
   List<Word> get words => _words;

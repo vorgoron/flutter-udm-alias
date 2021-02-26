@@ -194,13 +194,28 @@ class _GameScreenState extends State<GameScreen> {
                                       Icon(Icons.keyboard_arrow_left_outlined,
                                           color: Colors.red, size: 50),
                                       Expanded(
-                                        child: AutoSizeText(
-                                          word.value,
-                                          textAlign: TextAlign.center,
-                                          maxLines: 1,
-                                          style: TextStyle(
-                                              fontSize: 40,
-                                              color: Color(0xff073b4c)),
+                                        child: Column(
+                                          children: [
+                                            AutoSizeText(
+                                              word.value,
+                                              textAlign: TextAlign.center,
+                                              maxLines: 1,
+                                              style: TextStyle(
+                                                  fontSize: 40,
+                                                  color: Color(0xff073b4c)),
+                                            ),
+                                            Visibility(
+                                              visible: widget._gameController.showTranslations,
+                                              child: AutoSizeText(
+                                                '(${word.translation})',
+                                                textAlign: TextAlign.center,
+                                                maxLines: 1,
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    color: Colors.grey),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Icon(Icons.keyboard_arrow_right_outlined,

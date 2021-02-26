@@ -98,6 +98,16 @@ class _GameSettingsScreenState extends State<GameSettingsScreen> {
                         {await pref.setBool(minusScoreKey, value)});
                   });
                 }),
+            SwitchListTile(
+                title: Text('Ӟуч кылэ берыктонъёсты адӟытоно'),
+                value: _gameController.showTranslations,
+                onChanged: (bool value) {
+                  setState(() {
+                    _gameController.showTranslations = value;
+                    _prefs.then((pref) async =>
+                        {await pref.setBool(showTranslations, value)});
+                  });
+                }),
             Spacer()
           ])),
       floatingActionButton: FloatingActionButton(
