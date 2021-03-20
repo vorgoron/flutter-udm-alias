@@ -165,7 +165,7 @@ class _TinderSwapCardState extends State<TinderSwapCard>
               child: new SizedBox.fromSize(
                 size: _cardSizes[index],
                 child: widget._cardBuilder(
-                    context, widget._totalNum - realIndex - 1),
+                    context, widget._totalNum - realIndex - 1, true),
               )),
         ),
       );
@@ -184,7 +184,7 @@ class _TinderSwapCardState extends State<TinderSwapCard>
               _cardSizes[index], _cardSizes[index + 1])
               .value
               : _cardSizes[index],
-          child: widget._cardBuilder(context, widget._totalNum - realIndex - 1),
+          child: widget._cardBuilder(context, widget._totalNum - realIndex - 1, false),
         ),
       );
     }
@@ -311,7 +311,7 @@ class _TinderSwapCardState extends State<TinderSwapCard>
   }
 }
 
-typedef Widget CardBuilder(BuildContext context, int index);
+typedef Widget CardBuilder(BuildContext context, int index, bool isFrontCard);
 
 enum CardSwipeOrientation { LEFT, RIGHT, RECOVER, UP, DOWN }
 

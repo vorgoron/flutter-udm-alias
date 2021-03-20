@@ -138,8 +138,7 @@ class _GameScreenState extends State<GameScreen> {
                     maxHeight: MediaQuery.of(context).size.width * 1.1,
                     minWidth: MediaQuery.of(context).size.width * 0.8,
                     minHeight: MediaQuery.of(context).size.width * 1.0,
-                    cardBuilder: (context, index) {
-
+                    cardBuilder: (context, index, isFrontCard) {
                       if (index == 0) {
                         // learning card
                         return Card(
@@ -179,7 +178,9 @@ class _GameScreenState extends State<GameScreen> {
                       } else {
                         // current word
                         var word = _words[index - 1];
-                        word.isUsed = true;
+                        if (isFrontCard) {
+                          word.isUsed = true;
+                        }
                         return Card(
                           color: cardColor,
                           child: Padding(
