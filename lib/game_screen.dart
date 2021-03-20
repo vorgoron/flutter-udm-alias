@@ -115,7 +115,6 @@ class _GameScreenState extends State<GameScreen> {
                         _startTimer();
                       } else {
                         var word = _words[index - 1];
-                        word.isUsed = true;
                         if (orientation == CardSwipeOrientation.UP ||
                             orientation == CardSwipeOrientation.RIGHT) {
                           setState(() {
@@ -180,6 +179,7 @@ class _GameScreenState extends State<GameScreen> {
                       } else {
                         // current word
                         var word = _words[index - 1];
+                        word.isUsed = true;
                         return Card(
                           color: cardColor,
                           child: Padding(
