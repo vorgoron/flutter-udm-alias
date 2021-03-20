@@ -3,23 +3,20 @@ import 'package:udm_alias_app/word.dart';
 import 'package:udm_alias_app/word_entity.dart';
 
 class GameController {
-  static GameController _instance;
+  static GameController _instance = GameController();
   // game settings:
   double scoreToWin = 45;
   double timeForTeam = 60;
   bool minusNegativeScore = true;
   bool showTranslations = false;
 
-  List<Word> _words;
+  late List<Word> _words;
   List<Word> get words => _words;
-  List<Team> teams;
+  late List<Team> teams;
   int _currentTeamIndex = 0;
   int get currentTeamIndex => _currentTeamIndex;
 
   static GameController getInstance() {
-    if (_instance == null) {
-      _instance = GameController();
-    }
     return _instance;
   }
 
@@ -48,7 +45,7 @@ class GameController {
   }
 
   List<Word> getRandomWords() {
-    List<Word> result = List();
+    List<Word> result = [];
     result.addAll(words.where((element) => !element.isUsed));
     result.shuffle();
     return result;

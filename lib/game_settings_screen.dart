@@ -20,17 +20,26 @@ class _GameSettingsScreenState extends State<GameSettingsScreen> {
     _prefs.then((prefs) {
       if (prefs.containsKey(scoreToWinKey)) {
         setState(() {
-          _gameController.scoreToWin = prefs.getDouble(scoreToWinKey);
+          var _scoreToWin = prefs.getDouble(scoreToWinKey);
+          if (_scoreToWin != null) {
+            _gameController.scoreToWin = _scoreToWin;
+          }
         });
       }
       if (prefs.containsKey(timeForTeamKey)) {
         setState(() {
-          _gameController.timeForTeam = prefs.getDouble(timeForTeamKey);
+          var _timeForTeam = prefs.getDouble(timeForTeamKey);
+          if (_timeForTeam != null) {
+            _gameController.timeForTeam = _timeForTeam;
+          }
         });
       }
       if (prefs.containsKey(minusScoreKey)) {
         setState(() {
-          _gameController.minusNegativeScore = prefs.getBool(minusScoreKey);
+          var _minusNegativeScore = prefs.getBool(minusScoreKey);
+          if (_minusNegativeScore != null) {
+            _gameController.minusNegativeScore = _minusNegativeScore;
+          }
         });
       }
     });

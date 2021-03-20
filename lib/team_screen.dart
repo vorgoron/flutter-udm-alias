@@ -30,8 +30,8 @@ class _TeamScreenState extends State<TeamScreen> {
     'Чеберикъёс',
     'Чукиндер',
   ];
-  List<Team> teams = List();
-  GameController _gameController;
+  List<Team> teams = [];
+  late GameController _gameController;
 
   String generateRandomTeam() {
     int randomIndex = Random().nextInt(title.length - 1);

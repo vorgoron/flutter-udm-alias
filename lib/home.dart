@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udm_alias_app/select_mode_screen.dart';
+import 'package:package_info/package_info.dart';
 
 import 'constants.dart';
 
@@ -19,7 +20,8 @@ class HomeScreen extends StatelessWidget {
                       icon: Icon(Icons.info_outline),
                       iconSize: 46,
                       color: primaryColor,
-                      onPressed: () {
+                      onPressed: () async {
+                        PackageInfo packageInfo = await PackageInfo.fromPlatform();
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('Ӧлиас'),
-                                        Text('v1.0.0', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w200)),
+                                        Text('v${packageInfo.version}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w200)),
                                       ],
                                     ),
                                   ),

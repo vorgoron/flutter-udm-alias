@@ -26,10 +26,10 @@ class _GameScreenState extends State<GameScreen> {
   int _positiveScore = 0;
   int _elapsedTime = 6;
   int _allTime = 6;
-  Timer _timer;
+  Timer? _timer;
   bool _isPause = false;
   CardController cardController = CardController();
-  List<Word> _words;
+  late List<Word> _words;
 
   @override
   void initState() {
@@ -260,7 +260,7 @@ class _GameScreenState extends State<GameScreen> {
                             _startTimer();
                             _isPause = false;
                           } else {
-                            _timer.cancel();
+                            _timer?.cancel();
                             _isPause = true;
                           }
                         });

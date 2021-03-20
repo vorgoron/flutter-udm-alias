@@ -15,7 +15,7 @@ class FinalScreen extends StatefulWidget {
 }
 
 class _FinalScreenState extends State<FinalScreen> {
-  List<Team> _teams = List();
+  List<Team> _teams = [];
 
   @override
   void initState() {

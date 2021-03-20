@@ -19,7 +19,7 @@ class RoundResultScreen extends StatefulWidget {
 
 class _RoundResultScreenState extends State<RoundResultScreen>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
   var tabs = [
     Tab(
       text: "Счётэз воштыны",
@@ -28,7 +28,7 @@ class _RoundResultScreenState extends State<RoundResultScreen>
       text: 'Баллъёс',
     )
   ];
-  List<Word> _words;
+  late List<Word> _words;
 
   @override
   void initState() {
